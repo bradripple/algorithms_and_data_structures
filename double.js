@@ -7,3 +7,5 @@ function double(arr) {
 }
 
 console.log(double([1, 2, 3, 4, 5]));
+
+// O(n) Space

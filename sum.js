@@ -7,3 +7,5 @@ function sum(arr) {
 }
 
 console.log(sum([1, 2, 3, 4, 5]));
+
+// O(1) Space - constant
