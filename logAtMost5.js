@@ -6,4 +6,4 @@ function logAtMost5(n) {
 
 console.log(logAtMost5(10));
 
-// O(1)
+// O(1) Constant Time
