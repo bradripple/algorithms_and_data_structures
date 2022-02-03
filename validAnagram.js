@@ -106,36 +106,68 @@
 // }
 
 
-validAnagram = (first, second) => {
-    // check to confirm both strings have the same frequency
-    if (first.length !== second.length) {
+// validAnagram = (first, second) => {
+//     // check to confirm both strings have the same frequency
+//     if (first.length !== second.length) {
+//         return false;
+//     }
+
+//     // create an object to track letters value in string
+//     let lookup = {};
+
+//     // loop through first string to add each letter to lookup objects value
+//     for (let i = 0; i < first.length; i++) {
+//         let letter = first[i];
+//         lookup[letter] ? lookup[letter] += 1 : lookup[letter] = 1;
+//     }
+//     console.log(lookup);
+
+//     // loop through the second string to compare to lookup object
+//     for (let i = 0; i < second.length; i++ ) {
+//         let letter = second[i];
+
+//         // check if letter is in lookup object
+//         if (!lookup[letter]) {
+//             return false;
+//         } else {
+//             lookup[letter] -= 1;
+//         }
+//     }
+
+//     return true;
+// }
+
+
+
+vaildAnagram = (first, second) => {
+    // check to make sure both strings have a matching frequency
+    if(first.length !== second.length) {
         return false;
     }
 
-    // create an object to track letters value in string
+    // create object to track letters values
     let lookup = {};
 
-    // loop through first string to add each letter to lookup objects value
+    // loop through first string to add letter values to lookup object
     for (let i = 0; i < first.length; i++) {
         let letter = first[i];
         lookup[letter] ? lookup[letter] += 1 : lookup[letter] = 1;
     }
     console.log(lookup);
 
-    // loop through the second string to compare to lookup object
-    for (let i = 0; i < second.length; i++ ) {
+    // loop through the second string to compare to letter values in lookup object
+    for (let i = 0; i < second.length; i++) {
         let letter = second[i];
-
-        // check if letter is in lookup object
-        if (!lookup[letter]) {
+        // check to see if letter has value in lookup object, if not return false
+        if(!lookup[letter]) {
             return false;
         } else {
+            // if letter has value - 1
             lookup[letter] -= 1;
         }
     }
 
     return true;
 }
-
 
 console.log(validAnagram('anagrams', 'nagarams'))
