@@ -139,7 +139,7 @@
 
 
 
-vaildAnagram = (first, second) => {
+validAnagram = (first, second) => {
     // check to make sure both strings have a matching frequency
     if(first.length !== second.length) {
         return false;
