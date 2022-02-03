@@ -50,26 +50,90 @@
 // }
 
 
-function validAnagram(first, second) {
-    if(first.length !== second.length) {
+// function validAnagram(first, second) {
+//     if(first.length !== second.length) {
+//         return false;
+//     }
+
+//     lookup = {};
+//     for(let i = 0; i < first.length; i++){
+//         letter = first[i];
+//         lookup[letter] ? lookup[letter] += 1 : lookup[letter] = 1;
+//     }
+//     console.log('lookup1', lookup)
+
+//     for(let i = 0; i < second.length; i++) {
+//         letter = second[i];
+//         if(!lookup[letter]) {
+//             return false;
+//         } else {
+//             lookup[letter] -= 1;
+//         }
+//     }
+//     return true;
+// }
+
+
+// validAnagram = (first, second) => {
+//     // compare lengths to confirm frequency
+//     if(first.length !== second.length) {
+//         return false;
+//     }
+
+//     // create an object to track values of letters in the string
+//     let lookup = {};
+//     for (let i = 0; i < first.length; i++) {
+//         let letter = first[i];
+//         // add letter to object with value of 1 or add 1 to value if already exists
+//         lookup[letter] ? lookup[letter] += 1 : lookup[letter] = 1;
+//     }
+//     // conosle log to confirm things are working
+//     console.log(lookup);
+
+//     // loop through the second string
+//     for (let i = 0; i < second.length; i++) {
+//         let letter = second[i];
+//         // first check if seconds letter is found in first
+//         if (!lookup[letter]) {
+//             // if letter is not found 
+//             return false;
+//         } else {
+//             lookup[letter] -= 1;
+//         }
+//     }
+
+//     return true;
+// }
+
+
+validAnagram = (first, second) => {
+    // check to confirm both strings have the same frequency
+    if (first.length !== second.length) {
         return false;
     }
 
-    lookup = {};
-    for(let i = 0; i < first.length; i++){
-        letter = first[i];
+    // create an object to track letters value in string
+    let lookup = {};
+
+    // loop through first string to add each letter to lookup objects value
+    for (let i = 0; i < first.length; i++) {
+        let letter = first[i];
         lookup[letter] ? lookup[letter] += 1 : lookup[letter] = 1;
     }
-    console.log('lookup1', lookup)
+    console.log(lookup);
 
-    for(let i = 0; i < second.length; i++) {
-        letter = second[i];
-        if(!lookup[letter]) {
+    // loop through the second string to compare to lookup object
+    for (let i = 0; i < second.length; i++ ) {
+        let letter = second[i];
+
+        // check if letter is in lookup object
+        if (!lookup[letter]) {
             return false;
         } else {
             lookup[letter] -= 1;
         }
     }
+
     return true;
 }
 
