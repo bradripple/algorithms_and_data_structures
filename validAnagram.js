@@ -139,6 +139,37 @@
 
 
 
+// validAnagram = (first, second) => {
+//     // check to make sure both strings have a matching frequency
+//     if(first.length !== second.length) {
+//         return false;
+//     }
+
+//     // create object to track letters values
+//     let lookup = {};
+
+//     // loop through first string to add letter values to lookup object
+//     for (let i = 0; i < first.length; i++) {
+//         let letter = first[i];
+//         lookup[letter] ? lookup[letter] += 1 : lookup[letter] = 1;
+//     }
+//     console.log(lookup);
+
+//     // loop through the second string to compare to letter values in lookup object
+//     for (let i = 0; i < second.length; i++) {
+//         let letter = second[i];
+//         // check to see if letter has value in lookup object, if not return false
+//         if(!lookup[letter]) {
+//             return false;
+//         } else {
+//             // if letter has value - 1
+//             lookup[letter] -= 1;
+//         }
+//     }
+
+//     return true;
+// }
+
 validAnagram = (first, second) => {
     // check to make sure both strings have a matching frequency
     if(first.length !== second.length) {
@@ -149,20 +180,21 @@ validAnagram = (first, second) => {
     let lookup = {};
 
     // loop through first string to add letter values to lookup object
-    for (let i = 0; i < first.length; i++) {
+    for(let i = 0; i < first.length; i++) {
         let letter = first[i];
         lookup[letter] ? lookup[letter] += 1 : lookup[letter] = 1;
     }
     console.log(lookup);
 
     // loop through the second string to compare to letter values in lookup object
-    for (let i = 0; i < second.length; i++) {
+    for(let i = 0; i < second.length; i++) {
         let letter = second[i];
+
         // check to see if letter has value in lookup object, if not return false
         if(!lookup[letter]) {
             return false;
         } else {
-            // if letter has value - 1
+            // if letter has a value subtract 1
             lookup[letter] -= 1;
         }
     }
