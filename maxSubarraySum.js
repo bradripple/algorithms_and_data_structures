@@ -22,22 +22,40 @@
 // 5. How should I label the important pieces of data that are a part of the problem?
 
 
-maxSubarraySum = (arr, n) => {
-    if (n > arr.length) {
-        return null;
-    }
+// maxSubarraySum = (arr, n) => {
+//     if (n > arr.length) {
+//         return null;
+//     }
+//     // start max at -Infinity allows this to work with negative numbers
+//     let max = -Infinity;
+//     for (let i = 0; i < arr.length - n + 1; i++) {
+//         let temp = 0;
+//         for (let j = 0; j < n; j++) {
+//             temp += arr[i + j];
+//         }
+//         if (temp > max) {
+//             max = temp;
+//         }
+//     }
+//     return max;
+// }
 
-    let max = -Infinity;
-    for (let i = 0; i < arr.length - n + 1; i++) {
-        let temp = 0;
-        for (let j = 0; j < n; j++) {
-            temp += arr[i + j];
-        }
-        if (temp > max) {
-            max = temp;
-        }
+// Refactor with - Sliding Window
+
+maxSubarraySum = (arr, num) => {
+    let maxSum = 0;
+    let tempSum = 0;
+
+    if (arr.length < num) return null;
+    for (let i = 0; i < num; i ++) {
+        maxSum += arr[i];
     }
-    return max;
+    tempSum = maxSum;
+    for (let i = num; i < arr.length; i++) {
+        tempSum = tempSum - arr[i - num] + arr[i];
+        maxSum = Math.max(maxSum, tempSum);
+    }
+    return maxSum;
 }
 
-console.log(maxSubarraySum([1,2,5,2,8,1,5], 2));
+console.log(maxSubarraySum([2,6,9,2,1,8,5,6,3], 3));
